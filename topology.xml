@@ -25,7 +25,7 @@
     </decltask>
 
     <decltask id="ReadoutEmulator"> <!-- Readout EMULATOR -->
-        <exe reachable="true">$O2_ROOT/bin/ReadoutEmulatorDevice --id readout-%taskIndex% --transport shmem --shm-monitor true --color 0 --channel-config name=readout,type=pair,method=bind --data-shm-region-size 4294967296 --cru-superpage-size 2097152 --cru-dma-chunk-size 0 --cru-link-count 2 --cru-link-bits-per-s 10000000000 --network-interface ib0 --io-threads ${ioThreads} -S "&lt;$FAIRROOT_ROOT/lib" -P dds --gui false</exe>
+        <exe reachable="true">$O2_ROOT/bin/ReadoutEmulatorDevice --id readout-%taskIndex% --transport shmem --shm-monitor true --color 0 --channel-config name=readout,type=pair,method=bind --data-shm-region-size 4294967296 --cru-superpage-size 2097152 --cru-dma-chunk-size 0 --cru-link-count 2  --link-id-offset %collectionIndex%0 --cru-link-bits-per-s 10000000000 --network-interface ib0 --io-threads ${ioThreads} -S "&lt;$FAIRROOT_ROOT/lib" -P dds --gui false</exe>
         <properties>
             <id access="write">readout</id>
         </properties>
